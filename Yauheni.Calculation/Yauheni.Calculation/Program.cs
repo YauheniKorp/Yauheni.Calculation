@@ -1,66 +1,68 @@
 ﻿using System;
 
+
 namespace Yauheni.Calculation
 {
     class Program
     {
         static void Main()
+        {
+            Calculation();
+            Select();
+        }
+         static double GetNumber()
+        {
+            return Convert.ToDouble(Console.ReadLine());
+        }
+        static string GetAction()
+        {
+            string Action = Convert.ToString(Console.ReadLine());
+            return Action;
+        }
+        static void Select()
 
         {
-            Calc();
-
-
-            void Calc()
+            Console.WriteLine($"Do you want to continue? Enter Yes or No");
+            string u = Convert.ToString(Console.ReadLine());
+            u.ToLower();
+            if (u == "yes")
             {
-                Console.WriteLine($"Enter the first number: ");
-                int x = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine($"Enter the second number:  ");
-                int y = Convert.ToInt32(Console.ReadLine());
-
-
-
-
-                Console.WriteLine($"Select an action: +, -, *, /");
-                string selection = Console.ReadLine();
-                switch (selection)
-                {
-                    case "+":
-
-                        int result = x + y;
-                        Console.WriteLine(result);
-                        goto case "5";
-                    case "-":
-                        int result1 = x - y;
-                        Console.WriteLine(result1);
-                        goto case "5";
-                    case "*":
-                        int result2 = x * y;
-                        Console.WriteLine(result2);
-                        goto case "5";
-                    case "/":
-                        int result3 = x / y;
-                        Console.WriteLine(result3);
-                        goto case "5";
-                    case "5":
-
-                        Console.WriteLine($"Do you want to continue? Enter Yes or No");
-                        string u = Convert.ToString(Console.ReadLine());
-
-                        if (u == "Yes")
-                        {
-                            Calc();
-
-                        }
-                        else
-                        {
-                            Console.WriteLine($"GoodBye");
-                            return;
-                        }
-                        break;
-                }
+                Calculation();
+            }
+            else
+            {
+                Console.WriteLine($"GoodBye");
+                return;
             }
             Console.ReadLine();
+        }
+        static void Calculation()
+        {
+           Console.WriteLine($"Enter the first number");
+           double FirstNumber = GetNumber();
+           Console.WriteLine($"Enter the second number: ");
+           double SecondNumber = GetNumber();
+           Console.WriteLine($"Select an action: +, -, *, /");
+           string selection = GetAction();
+           switch (selection)
+            {
+                case "+":
+                    double result = FirstNumber + SecondNumber;
+                    Console.WriteLine(result);
+                    break;
+                case "-":
+                    double result1 = FirstNumber - SecondNumber;
+                    Console.WriteLine(result1);
+                    break;
+                case "*":
+                    double result2 = FirstNumber * SecondNumber;
+                    Console.WriteLine(result2);
+                    break;
+                case "/":
+                    double result3 = FirstNumber / SecondNumber;
+                    Console.WriteLine(result3);                    
+                    break;
+            }   
         }
     }
 }
