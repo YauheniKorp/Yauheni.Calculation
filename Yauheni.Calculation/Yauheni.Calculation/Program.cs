@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Yauheni.Calculation
 {
     class Program
@@ -14,13 +13,14 @@ namespace Yauheni.Calculation
         {
             return Convert.ToDouble(Console.ReadLine());
         }
+
         static string GetAction()
         {
             string Action = Convert.ToString(Console.ReadLine());
             return Action;
         }
-        static void Select()
 
+        static void Select()
         {
             Console.WriteLine($"Do you want to continue? Enter Yes or No");
             string u = Convert.ToString(Console.ReadLine());
@@ -36,6 +36,7 @@ namespace Yauheni.Calculation
             }
             Console.ReadLine();
         }
+
         static void Calculation()
         {
            Console.WriteLine($"Enter the first number");
@@ -44,25 +45,23 @@ namespace Yauheni.Calculation
            double SecondNumber = GetNumber();
            Console.WriteLine($"Select an action: +, -, *, /");
            string selection = GetAction();
+           var result = 0.0;
            switch (selection)
             {
                 case "+":
-                    double result = FirstNumber + SecondNumber;
-                    Console.WriteLine(result);
+                    result = FirstNumber + SecondNumber;
                     break;
                 case "-":
-                    double result1 = FirstNumber - SecondNumber;
-                    Console.WriteLine(result1);
+                    result = FirstNumber - SecondNumber;
                     break;
                 case "*":
-                    double result2 = FirstNumber * SecondNumber;
-                    Console.WriteLine(result2);
+                    result = FirstNumber * SecondNumber;
                     break;
                 case "/":
-                    double result3 = FirstNumber / SecondNumber;
-                    Console.WriteLine(result3);                    
+                    result = FirstNumber / SecondNumber;                    
                     break;
-            }   
+            }
+            Console.WriteLine(result);
         }
     }
 }
